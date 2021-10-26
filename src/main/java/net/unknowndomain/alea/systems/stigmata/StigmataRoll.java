@@ -20,9 +20,10 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import net.unknowndomain.alea.dice.standard.D10;
-import net.unknowndomain.alea.dice.standard.D6;
-import net.unknowndomain.alea.pools.DicePool;
+import net.unknowndomain.alea.random.SingleResult;
+import net.unknowndomain.alea.random.dice.DicePool;
+import net.unknowndomain.alea.random.dice.bag.D10;
+import net.unknowndomain.alea.random.dice.bag.D6;
 import net.unknowndomain.alea.roll.GenericResult;
 import net.unknowndomain.alea.roll.GenericRoll;
 
@@ -67,16 +68,16 @@ public class StigmataRoll implements GenericRoll
     @Override
     public GenericResult getResult()
     {
-        List<Integer> resultsPool = this.mainPool.getResults();
+        List<SingleResult<Integer>> resultsPool = this.mainPool.getResults();
         resultsPool.addAll(this.complPool.getResults());
         StigmataResults results = new StigmataResults(resultsPool);
-        for (Integer r : resultsPool)
+        for (SingleResult<Integer> r : resultsPool)
         {
-            if (r == 1)
+            if (r.getValue() == 1)
             {
                 results.addFailure();
             }
-            if (r >= 6)
+            if (r.getValue() >= 6)
             {
                 results.addSuccess();
             }
