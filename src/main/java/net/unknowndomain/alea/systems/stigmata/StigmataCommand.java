@@ -62,7 +62,7 @@ public class StigmataCommand extends RpgSystemCommand
         else
         {
             StigmataOptions opt = (StigmataOptions) options;
-            GenericRoll roll  = new StigmataRoll(opt.getProcessor(), opt.getModifiers());
+            GenericRoll roll  = new StigmataRoll(opt.getProcessor(), lang, opt.getModifiers());
             retVal = Optional.of(roll);
         }
         return retVal;

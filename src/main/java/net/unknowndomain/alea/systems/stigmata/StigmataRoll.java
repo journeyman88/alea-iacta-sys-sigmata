@@ -19,6 +19,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import net.unknowndomain.alea.random.SingleResult;
 import net.unknowndomain.alea.random.dice.DicePool;
@@ -37,13 +38,14 @@ public class StigmataRoll implements GenericRoll
     private final DicePool<D10> mainPool;
     private final DicePool<D6> complPool;
     private final Set<StigmataModifiers> mods;
+    private final Locale lang;
     
-    public StigmataRoll(Integer tacticValue, StigmataModifiers ... mod)
+    public StigmataRoll(Integer tacticValue, Locale lang, StigmataModifiers ... mod)
     {
-        this(tacticValue, Arrays.asList(mod));
+        this(tacticValue, lang, Arrays.asList(mod));
     }
     
-    public StigmataRoll(Integer tacticValue, Collection<StigmataModifiers> mod)
+    public StigmataRoll(Integer tacticValue, Locale lang, Collection<StigmataModifiers> mod)
     {
         
         this.mods = new HashSet<>();
@@ -63,6 +65,7 @@ public class StigmataRoll implements GenericRoll
         int complDice = 5 - mainDice;
         this.mainPool = new DicePool<>(D10.INSTANCE, mainDice);
         this.complPool = new DicePool<>(D6.INSTANCE, complDice);
+        this.lang = lang;
     }
     
     @Override
@@ -84,6 +87,7 @@ public class StigmataRoll implements GenericRoll
             
         }
         results.setVerbose(mods.contains(StigmataModifiers.VERBOSE));
+        results.setLang(lang);
         return results;
     }
     

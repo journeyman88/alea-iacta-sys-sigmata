@@ -20,14 +20,16 @@ import java.util.Collections;
 import java.util.List;
 import net.unknowndomain.alea.messages.MsgBuilder;
 import net.unknowndomain.alea.random.SingleResult;
-import net.unknowndomain.alea.roll.GenericResult;
+import net.unknowndomain.alea.roll.LocalizedResult;
 
 /**
  *
  * @author journeyman
  */
-public class StigmataResults extends GenericResult
+public class StigmataResults extends LocalizedResult
 {
+    private final static String BUNDLE_NAME = "net.unknowndomain.alea.systems.stigmata.RpgSystemBundle";
+    
     private final List<SingleResult<Integer>> results;
     private int successes = 0;
     private StigmataResults prev;
@@ -73,11 +75,11 @@ public class StigmataResults extends GenericResult
     protected void formatResults(MsgBuilder messageBuilder, boolean verbose, int indentValue)
     {
         String indent = getIndent(indentValue);
-        messageBuilder.append(indent).append("Successes: ").append(getSuccesses()).appendNewLine();
+        messageBuilder.append(indent).append(translate("stigmata.results.successes", getSuccesses())).appendNewLine();
         if (verbose)
         {
             messageBuilder.append(indent).append("Roll ID: ").append(getUuid()).appendNewLine();
-            messageBuilder.append(indent).append("Results: ").append(" [ ");
+            messageBuilder.append(indent).append(translate("stigmata.results.diceResults")).append(" [ ");
             for (SingleResult<Integer> t : getResults())
             {
                 messageBuilder.append("( ").append(t.getLabel()).append(" => ");
@@ -86,11 +88,18 @@ public class StigmataResults extends GenericResult
             messageBuilder.append("]\n");
             if (prev != null)
             {
-                messageBuilder.append("Prev : {\n");
+                messageBuilder.append(translate("stigmata.results.prevResults"));
+                messageBuilder.append("{\n");
                 prev.formatResults(messageBuilder, verbose, indentValue + 4);
                 messageBuilder.append("}\n");
             }
         }
+    }
+
+    @Override
+    protected String getBundleName()
+    {
+        return BUNDLE_NAME;
     }
 
 }
