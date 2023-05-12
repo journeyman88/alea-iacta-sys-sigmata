@@ -6,7 +6,7 @@
         <artifactId>alea-iacta-est</artifactId>
         <version>2.2.0</version>
     </parent>
-    <artifactId>alea-iacta-sys-stigmata</artifactId>
+    <artifactId>alea-iacta-sys-sigmata</artifactId>
     <version>2.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     
@@ -18,9 +18,9 @@
     </repositories>
     
     <scm>
-        <connection>scm:git:git://github.com/journeyman88/alea-iacta-sys-stigmata</connection>
-        <developerConnection>scm:git:ssh://git@github.com/journeyman88/alea-iacta-sys-stigmata</developerConnection>
-        <url>https://github.com/journeyman88/alea-iacta-sys-stigmata</url>
+        <connection>scm:git:git://github.com/journeyman88/alea-iacta-sys-sigmata</connection>
+        <developerConnection>scm:git:ssh://git@github.com/journeyman88/alea-iacta-sys-sigmata</developerConnection>
+        <url>https://github.com/journeyman88/alea-iacta-sys-sigmata</url>
         <tag>HEAD</tag>
     </scm>
     
@@ -38,8 +38,8 @@
         </dependency>
     </dependencies>
     
-    <name>Alea Iacta Est - System: Stigmata - This Signal Kills Fascists</name>
+    <name>Alea Iacta Est - System: Sigmata - This Signal Kills Fascists</name>
     <description>
-        The system specific implementation to support the RPG "Stigmata: This Signal Kills Fascists"
+        The system specific implementation to support the RPG "Sigmata: This Signal Kills Fascists"
     </description>
 </project>
