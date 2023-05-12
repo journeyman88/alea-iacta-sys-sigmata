@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.unknowndomain.alea.systems.stigmata;
+package net.unknowndomain.alea.systems.sigmata;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,15 +26,15 @@ import net.unknowndomain.alea.roll.LocalizedResult;
  *
  * @author journeyman
  */
-public class StigmataResults extends LocalizedResult
+public class SigmataResults extends LocalizedResult
 {
-    private final static String BUNDLE_NAME = "net.unknowndomain.alea.systems.stigmata.RpgSystemBundle";
+    private final static String BUNDLE_NAME = "net.unknowndomain.alea.systems.sigmata.RpgSystemBundle";
     
     private final List<SingleResult<Integer>> results;
     private int successes = 0;
-    private StigmataResults prev;
+    private SigmataResults prev;
     
-    public StigmataResults(List<SingleResult<Integer>> results)
+    public SigmataResults(List<SingleResult<Integer>> results)
     {
         List<SingleResult<Integer>> tmp = new ArrayList<>(results.size());
         tmp.addAll(results);
@@ -61,12 +61,12 @@ public class StigmataResults extends LocalizedResult
         return results;
     }
 
-    public StigmataResults getPrev()
+    public SigmataResults getPrev()
     {
         return prev;
     }
 
-    public void setPrev(StigmataResults prev)
+    public void setPrev(SigmataResults prev)
     {
         this.prev = prev;
     }
@@ -75,11 +75,11 @@ public class StigmataResults extends LocalizedResult
     protected void formatResults(MsgBuilder messageBuilder, boolean verbose, int indentValue)
     {
         String indent = getIndent(indentValue);
-        messageBuilder.append(indent).append(translate("stigmata.results.successes", getSuccesses())).appendNewLine();
+        messageBuilder.append(indent).append(translate("sigmata.results.successes", getSuccesses())).appendNewLine();
         if (verbose)
         {
             messageBuilder.append(indent).append("Roll ID: ").append(getUuid()).appendNewLine();
-            messageBuilder.append(indent).append(translate("stigmata.results.diceResults")).append(" [ ");
+            messageBuilder.append(indent).append(translate("sigmata.results.diceResults")).append(" [ ");
             for (SingleResult<Integer> t : getResults())
             {
                 messageBuilder.append("( ").append(t.getLabel()).append(" => ");
@@ -88,7 +88,7 @@ public class StigmataResults extends LocalizedResult
             messageBuilder.append("]\n");
             if (prev != null)
             {
-                messageBuilder.append(translate("stigmata.results.prevResults"));
+                messageBuilder.append(translate("sigmata.results.prevResults"));
                 messageBuilder.append("{\n");
                 prev.formatResults(messageBuilder, verbose, indentValue + 4);
                 messageBuilder.append("}\n");

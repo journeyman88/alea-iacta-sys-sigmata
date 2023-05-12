@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.unknowndomain.alea.systems.stigmata;
+package net.unknowndomain.alea.systems.sigmata;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -32,20 +32,20 @@ import net.unknowndomain.alea.roll.GenericRoll;
  *
  * @author journeyman
  */
-public class StigmataRoll implements GenericRoll
+public class SigmataRoll implements GenericRoll
 {
     
     private final DicePool<D10> mainPool;
     private final DicePool<D6> complPool;
-    private final Set<StigmataModifiers> mods;
+    private final Set<SigmataModifiers> mods;
     private final Locale lang;
     
-    public StigmataRoll(Integer tacticValue, Locale lang, StigmataModifiers ... mod)
+    public SigmataRoll(Integer tacticValue, Locale lang, SigmataModifiers ... mod)
     {
         this(tacticValue, lang, Arrays.asList(mod));
     }
     
-    public StigmataRoll(Integer tacticValue, Locale lang, Collection<StigmataModifiers> mod)
+    public SigmataRoll(Integer tacticValue, Locale lang, Collection<SigmataModifiers> mod)
     {
         
         this.mods = new HashSet<>();
@@ -73,7 +73,7 @@ public class StigmataRoll implements GenericRoll
     {
         List<SingleResult<Integer>> resultsPool = this.mainPool.getResults();
         resultsPool.addAll(this.complPool.getResults());
-        StigmataResults results = new StigmataResults(resultsPool);
+        SigmataResults results = new SigmataResults(resultsPool);
         for (SingleResult<Integer> r : resultsPool)
         {
             if (r.getValue() == 1)
@@ -86,7 +86,7 @@ public class StigmataRoll implements GenericRoll
             }
             
         }
-        results.setVerbose(mods.contains(StigmataModifiers.VERBOSE));
+        results.setVerbose(mods.contains(SigmataModifiers.VERBOSE));
         results.setLang(lang);
         return results;
     }

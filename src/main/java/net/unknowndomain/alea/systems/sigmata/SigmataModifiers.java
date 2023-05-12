@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.unknowndomain.alea.systems.stigmata;
+package net.unknowndomain.alea.systems.sigmata;
 
 /**
  *
  * @author journeyman
  */
-public enum StigmataModifiers
+public enum SigmataModifiers
 {
     VERBOSE
 }

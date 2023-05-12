@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.unknowndomain.alea.systems.stigmata;
+package net.unknowndomain.alea.systems.sigmata;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,10 +29,10 @@ import net.unknowndomain.alea.systems.annotations.RpgSystemOption;
  *
  * @author journeyman
  */
-@RpgSystemData(bundleName = "net.unknowndomain.alea.systems.stigmata.RpgSystemBundle")
-public class StigmataOptions extends RpgSystemOptions
+@RpgSystemData(bundleName = "net.unknowndomain.alea.systems.sigmata.RpgSystemBundle")
+public class SigmataOptions extends RpgSystemOptions
 {
-    @RpgSystemOption(name = "processor", shortcode = "p", description = "stigmata.options.processor", argName = "tacticValue")
+    @RpgSystemOption(name = "processor", shortcode = "p", description = "sigmata.options.processor", argName = "tacticValue")
     private Integer processor;
     
     @Override
@@ -51,12 +51,12 @@ public class StigmataOptions extends RpgSystemOptions
         return processor;
     }
 
-    public Collection<StigmataModifiers> getModifiers()
+    public Collection<SigmataModifiers> getModifiers()
     {
-        Set<StigmataModifiers> mods = new HashSet<>();
+        Set<SigmataModifiers> mods = new HashSet<>();
         if (isVerbose())
         {
-            mods.add(StigmataModifiers.VERBOSE);
+            mods.add(SigmataModifiers.VERBOSE);
         }
         return mods;
     }

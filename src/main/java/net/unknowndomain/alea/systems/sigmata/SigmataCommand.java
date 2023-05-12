@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.unknowndomain.alea.systems.stigmata;
+package net.unknowndomain.alea.systems.sigmata;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -28,12 +28,12 @@ import org.slf4j.LoggerFactory;
  *
  * @author journeyman
  */
-public class StigmataCommand extends RpgSystemCommand
+public class SigmataCommand extends RpgSystemCommand
 {
-    private static final Logger LOGGER = LoggerFactory.getLogger(StigmataCommand.class);
-    private static final RpgSystemDescriptor DESC = new RpgSystemDescriptor("Stigmata: This Signal Kills Fascists", "stg", "stigmata");
+    private static final Logger LOGGER = LoggerFactory.getLogger(SigmataCommand.class);
+    private static final RpgSystemDescriptor DESC = new RpgSystemDescriptor("Sigmata: This Signal Kills Fascists", "sig", "sigmata");
     
-    public StigmataCommand()
+    public SigmataCommand()
     {
         
     }
@@ -55,14 +55,14 @@ public class StigmataCommand extends RpgSystemCommand
     {
         
         Optional<GenericRoll> retVal;
-        if (options.isHelp() || !(options instanceof StigmataOptions) )
+        if (options.isHelp() || !(options instanceof SigmataOptions) )
         {
             retVal = Optional.empty();
         }
         else
         {
-            StigmataOptions opt = (StigmataOptions) options;
-            GenericRoll roll  = new StigmataRoll(opt.getProcessor(), lang, opt.getModifiers());
+            SigmataOptions opt = (SigmataOptions) options;
+            GenericRoll roll  = new SigmataRoll(opt.getProcessor(), lang, opt.getModifiers());
             retVal = Optional.of(roll);
         }
         return retVal;
@@ -71,7 +71,7 @@ public class StigmataCommand extends RpgSystemCommand
     @Override
     public RpgSystemOptions buildOptions()
     {
-        return new StigmataOptions();
+        return new SigmataOptions();
     }
     
 }
