@@ -12,9 +12,9 @@ Passing these parameters, the associated modifier will be enabled:
 
 ## Help print
 ```
-Stigmata: This Signal Kills Fascists [ stigmata | stg ]
+Sigmata: This Signal Kills Fascists [ sigmata | sig ]
 
-Usage: stg [-v] -p <targetNumber>
+Usage: sig [-v] -p <targetNumber>
 Description:
 This command will roll 5 dice divided between 10-sided dice
 and 6-sided dice, to generate a success value between -5
