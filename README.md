@@ -1,5 +1,5 @@
-# alea-iacta-sys-stigmata
-A RPG system module for Alea Iacta Est implementing "Stigmata: This Signal Kills Fascists"
+# alea-iacta-sys-sigmata
+A RPG system module for Alea Iacta Est implementing "Sigmata: This Signal Kills Fascists"
 
 ## Description
 This command will roll 5 dice, divided between Processor Dice (d10) and Complementary Dice (d6), and use the results to generate a success value given that every result of 1 subtracts a success and every result of 6 or more add a success.
